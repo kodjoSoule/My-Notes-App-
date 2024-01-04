@@ -1,0 +1,46 @@
+<h2>Welcome {{ name }}</h2>
+<p>Example de liasion</p>
+<div>
+  <img [src]="imageLink" />
+  //balise tabulation
+
+  <img [src]="imageLink" />
+</div>
+<h2>Attribut propriete et attribut</h2>
+<input type="text" [value]="inputVal" [attr.ari-label]="inputName" />
+<h2>Liaison de propriete et d'attribut classw</h2>
+<p [class.highlighted]="isHighlighted">Some text</p>
+<h2>On peut lier plusier classe</h2>
+<p [class]="myClasses">Outher example</p>
+
+<button (click)="login()" [attr.aria-label]="btnName">Click Me</button>
+<p [class.red]="isRed" (mouseover)="changeBgColor()">Some text</p>
+
+<button (click)="submit()">Submit</button>
+<h2>Control Flow</h2>
+@if(available){
+<h2>My Products</h2>
+<ol>
+  @for (product of products; track $index ){
+  <li [class.red]="isRed" (mouseover)="changeBgColor()">
+    {{ product }}
+  </li>
+  }
+</ol>
+}
+
+<button (click)="login()">Login</button>
+<button (click)="logout()">Logout</button>
+@if(loggedIn){
+<p>Authentification successfull</p>
+} @else{
+<p>Authentification failed</p>
+}
+
+<div *ngIf="inStock">
+  <h2>Notes disponible</h2>
+</div>
+<div>
+  <input type="text" [(ngModel)]="autherName" />
+  <p>Text Saisie : {{ autherName | uppercase }}</p>
+</div>

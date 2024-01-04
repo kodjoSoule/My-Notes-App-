@@ -1,0 +1,27 @@
+<h2>Login Forms</h2>
+<form (ngSubmit)="submitForm()">
+  <div>
+    <label for="email">Email</label>
+    <input type="text" name="email" [(ngModel)]="email" />
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" [(ngModel)]="password" />
+  </div>
+  <button type="submit">Submit</button>
+  <button type="button" (click)="resetForm()">Reset</button>
+</form>
+<!-- Display on real time forms info -->
+<div class="d-para">
+  <p>Email: {{ email }}</p>
+  <p>Password: {{ password }}</p>
+</div>
+<h1>Edit Forms</h1>
+<form (ngSubmit)="(submitFormEdit)">
+  <div><label for=""></label><input type="text" /></div>
+  <div><label for=""></label><input type="text" /></div>
+  <div><label for=""></label><input type="text" /></div>
+  <div><label for=""></label><input type="text" /></div>
+  <div><label for=""></label><input type="text" /></div>
+  <div><label for=""></label><input type="text" /></div>
+</form>
