@@ -1,27 +1,67 @@
-<h2>Login Forms</h2>
-<form (ngSubmit)="submitForm()">
-  <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" [(ngModel)]="email" />
+<!-- Register Forms -->
+<div class="myform col-6 mx-auto">
+  <h2>Register Forms</h2>
+  <form (ngSubmit)="submitForm()" #myform="ngForm">
+    <!-- Utilisation de l'attribut "for" au lieu de "id" pour l'association avec les labels -->
+    <div class="form-group mb-2">
+      <label for="email">Email</label>
+      <input
+        class="form-control"
+        type="text"
+        name="email"
+        required
+        [formControl]="emailControl"
+      />
+    </div>
+    <div class="form-group mb-2">
+      <label for="password">Password</label>
+      <input
+        class="form-control"
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
+    <div class="form-group mb-2">
+      <label for="name">Nom</label>
+      <input
+        class="form-control"
+        type="text"
+        name="name"
+        [(ngModel)]="name"
+        required
+      />
+    </div>
+    <div class="form-group mb-2">
+      <label for="address">Address</label>
+      <input
+        class="form-control"
+        type="text"
+        name="address"
+        [(ngModel)]="address"
+        required
+      />
+    </div>
+    <div class="form-group mb-2">
+      <button
+        class="btn btn-primary me-3"
+        type="submit"
+        [disabled]="!myform.form.valid"
+      >
+        Submit
+      </button>
+      <button class="btn btn-secondary" type="button" (click)="resetForm()">
+        Reset
+      </button>
+    </div>
+  </form>
+  <!-- Display on real-time forms info -->
+  <div class="d-para">
+    <p><span>Email: </span>{{ email | uppercase }}</p>
+    <p><span>Password: </span>{{ password | uppercase }}</p>
+    <p><span>Name: </span>{{ name | uppercase }}</p>
+    <p><span>Address: </span>{{ address | uppercase }}</p>
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" [(ngModel)]="password" />
-  </div>
-  <button type="submit">Submit</button>
-  <button type="button" (click)="resetForm()">Reset</button>
-</form>
-<!-- Display on real time forms info -->
-<div class="d-para">
-  <p>Email: {{ email }}</p>
-  <p>Password: {{ password }}</p>
 </div>
-<h1>Edit Forms</h1>
-<form (ngSubmit)="(submitFormEdit)">
-  <div><label for=""></label><input type="text" /></div>
-  <div><label for=""></label><input type="text" /></div>
-  <div><label for=""></label><input type="text" /></div>
-  <div><label for=""></label><input type="text" /></div>
-  <div><label for=""></label><input type="text" /></div>
-  <div><label for=""></label><input type="text" /></div>
-</form>
+<app-form-skills />
