@@ -9,7 +9,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DonneesService } from './services/donnees.service';
 import { TestBootstrapComponent} from './components/test-bootstrap/test-bootstrap.component';
-
+import {AddNoteComponent} from './components/add-note/add-note.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -24,7 +24,7 @@ import { TestBootstrapComponent} from './components/test-bootstrap/test-bootstra
     FormsComponent,
     ButtonComponent,
     FooterComponent,
-
+    AddNoteComponent
 
   ],
   providers: [DonneesService],

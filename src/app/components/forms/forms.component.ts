@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { FormControl, ReactiveFormsModule , FormsModule, FormGroup, Validators } from '@angular/forms';
+import { FormControl, ReactiveFormsModule , FormsModule, Validators } from '@angular/forms';
 
 import { FormSkillsComponent } from '../form-skills/form-skills.component';
 @Component({
@@ -25,11 +25,11 @@ export class FormsComponent implements OnInit {
   name : string;
   address : string;
 
-  registerForm: FormGroup;
+  // registerForm: FormGroup;
 
 
-  nameskillControl: FormControl;
-  emailControl =new FormControl('example@mail.com');
+  // nameskillControl: FormControl;
+  // emailControl =new FormControl('example@mail.com');
 
   // registerForm: FormGroup;
   //constructeur
@@ -40,6 +40,7 @@ export class FormsComponent implements OnInit {
     this.name = 'Kodjo Souleymane';
     this.address = 'Lomé';
 
+    /*
     //forms control
     this.nameskillControl = new FormControl('Skills off', Validators.required);
     // Initialisation du formulaire réactif
@@ -49,7 +50,7 @@ export class FormsComponent implements OnInit {
       nameControl: new FormControl('', Validators.required),
       addressControl: new FormControl('', Validators.required),
     });
-
+    */
 
   }
   ngOnInit(): void {
@@ -64,6 +65,7 @@ submitFormEdit(){
 showSkills(){
   alert('showSkills');
 }
+/*
 resetForm(){
   // Réinitialisation des valeurs du formulaire
   this.registerForm.reset({
@@ -74,6 +76,6 @@ resetForm(){
   });
 }
 
-
+*/
 
 }

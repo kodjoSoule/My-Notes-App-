@@ -1,12 +1,13 @@
 .notes{
 width: 80%;
 margin: auto;
+
 }
 .notes li{
 list-style: none;
 padding: 0px;
 margin-bottom: 20px;
-background-color: white;
+background-color: rgb(186, 186, 186);
 border-radius: 15px;
 text-align: left;
 }

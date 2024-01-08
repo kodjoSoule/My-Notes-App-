@@ -22,5 +22,6 @@ export const NOTES: Note[] = [
         title : 'Note 3',
         text : 'This is the third note',
         date : new Date('2021-01-03')
-    },
+        }
+
 ];
