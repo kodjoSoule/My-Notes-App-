@@ -1,1 +1,29 @@
-<h1>{{ title }}</h1>
+<div
+  class="d-flex justify-content-between align-items-center bg-primary text-white p-3 mb-5"
+>
+  <button (click)="navigate()"><h1>My Header</h1></button>
+  <nav
+    class="d-flex justify-content-between align-items-center bg-primary text-white p-3"
+  >
+    <a
+      class="d-flex justify-content-between align-items-center bg-primary text-white p-3"
+      routerLink="/home"
+      >Home</a
+    >
+    <a
+      class="d-flex justify-content-between align-items-center bg-primary text-white p-3"
+      routerLink="/contacts"
+      >Contacts</a
+    >
+    <a
+      class="d-flex justify-content-between align-items-center bg-primary text-white p-3"
+      routerLink="/notes/lists"
+      >Listes Notes</a
+    >
+    <a
+      class="d-flex justify-content-between align-items-center bg-primary text-white p-3"
+      routerLink="/notes/new"
+      >Add Notes</a
+    >
+  </nav>
+</div>

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-test',
   standalone: true,
-  imports: [CommonModule, NgFor, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './test.component.html',
   styleUrl: './test.component.css'
 })
