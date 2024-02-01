@@ -1,0 +1,63 @@
+<!-- Skills Forms -->
+<div class="myform col-6 mx-auto">
+  <h2>Skills Forms</h2>
+  <form (ngSubmit)="onSubmit()" #myform2="ngForm" [formGroup]="skillsForm">
+    <div class="form-group mb-2">
+      <label for="name">Skills</label>
+      <input
+        class="form-control"
+        type="text"
+        name="name"
+        required
+        formControlName="nameControl"
+      />
+    </div>
+    <div class="form-group mb-2">
+      <label for="level">Level</label>
+      <input
+        class="form-control"
+        type="text"
+        name="level"
+        required
+        formControlName="levelControl"
+      />
+    </div>
+    <div class="form-group mb-2">
+      <label for="experience">Experience</label>
+      <input
+        class="form-control"
+        type="text"
+        name="experience"
+        required
+        formControlName="experienceControl"
+      />
+    </div>
+    <div class="form-group mb-2">
+      <button
+        class="btn btn-primary me-3"
+        type="submit"
+        [disabled]="!myform2.form.valid"
+      >
+        Submit
+      </button>
+      <button class="btn btn-secondary" type="button" (click)="onReset()">
+        Reset
+      </button>
+      <!-- Display on real-time forms info -->
+      <div class="d-para">
+        <p>
+          <span>Skills: </span
+          >{{ skillsForm.get("nameControl")?.value | uppercase }}
+        </p>
+        <p>
+          <span>Level: </span
+          >{{ skillsForm.get("levelControl")?.value | uppercase }}
+        </p>
+        <p>
+          <span>Experience: </span
+          >{{ skillsForm.get("experienceControl")?.value | uppercase }}
+        </p>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,36 @@
+<Div class="row p-4">
+  @for(note of notes ; track $index ){
+  <!-- <ng-container
+  *ngFor="let note of notes | paginate : { itemsPerPage: 5, currentPage: p }"
+  > -->
+  <div class="col-3 mb-5">
+    <div class="card" style="width: 18rem">
+      <div class="card-header">
+        {{ note.date | date : "dd/MM/yyyy" }}
+      </div>
+
+      <div class="card-body">
+        <h5 class="card-title" class="note-title">{{ note.title }}</h5>
+        <p class="card-text">{{ note.content }}</p>
+        <button
+          [routerLink]="['/note', note.id]"
+          class="btn btn-secondary me-2"
+        >
+          Retour
+        </button>
+        <button (click)="deleteNote(note.id)" class="btn btn-danger">
+          Supprimer
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- </ng-container> -->
+  }
+  <div class="col-8 mx-auto text-center">
+    <pagination-controls
+      (pageChange)="p = $event"
+      previousLabel="Précédent"
+      nextLabel="Suivant"
+    ></pagination-controls>
+  </div>
+</Div>

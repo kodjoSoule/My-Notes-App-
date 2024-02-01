@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-8 mx-auto">
+    @if(note){
+    <div id="note-container" class="card">
+      <div class="card-header">
+        <span>{{ note.title }}</span>
+        <span>ID: {{ note.id }}</span>
+      </div>
+      <div class="ncard-body">
+        <p>{{ note.content }}</p>
+      </div>
+    </div>
+    }@else {
+    <div class="alert alert-warning">Note not found!</div>
+    }
+    <nav>
+      <button class="btn btn-primary" [routerLink]="['/notes/lists']">
+        Back to List
+      </button>
+    </nav>
+  </div>
+</div>

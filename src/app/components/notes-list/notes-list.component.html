@@ -1,16 +1,47 @@
-<Div>
-  <ul class="notes">
-    @for(note of notes ; track $index){
-    <li>
-      <button [routerLink]="['/note', note.id]">
-        <span class="note-title">{{ note.title }}</span
-        ><br />
-        <span class="note-text">{{ note.text }}</span
-        ><br />
-        <span class="note-date">{{ note.date }}</span>
-        <br />
-      </button>
-    </li>
-    }
-  </ul>
-</Div>
+<div class="row p-4">
+  <div class="col-12">
+    <button class="btn btn-secondary me-2">Retour</button>
+  </div>
+  <div
+    class="col-3 mb-5"
+    *ngFor="let note of notes | paginate : { itemsPerPage: 33, currentPage: p }"
+  >
+    <div class="col-3 mb-5">
+      <div class="card" style="width: 18rem">
+        <div class="card-header">
+          {{ note.date | date : "dd/MM/yyyy" }}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" class="note-title">{{ note.title }}</h5>
+          <p class="card-text">{{ note.content }}</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+            voluptate commodi perferendis. Libero blanditiis pariatur nihil
+            dolore hic? Recusandae animi blanditiis rerum ipsa laudantium
+            molestiae nam hic natus officia error.
+          </p>
+          <!-- details button -->
+          <button
+            [routerLink]="['/note', note.id]"
+            class="btn btn-secondary me-2"
+          >
+            Détails
+          </button>
+          <button (click)="deleteNote(note.id)" class="btn btn-danger">
+            Supprimer
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- </ng-container> -->
+  </div>
+</div>
+<div class="row">
+  <div class="col-8 mx-auto text-center">
+    <pagination-controls
+      (pageChange)="p = $event"
+      previousLabel="Précédent"
+      nextLabel="Suivant"
+    ></pagination-controls>
+  </div>
+</div>

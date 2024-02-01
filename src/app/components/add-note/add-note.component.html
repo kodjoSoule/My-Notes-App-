@@ -1,0 +1,78 @@
+<div class="col-7 mx-auto">
+  <h1 class="text-primary text-uppercase">Add New Note</h1>
+  <div
+    [ngStyle]="{ color: 'blue', 'font-size': '24px', 'font-weight': 'bold' }"
+  >
+    style using ngStyle
+  </div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="addNoteForm">
+    <div class="form-group">
+      <label for="title">Titre</label>
+      <input
+        class="form-control"
+        type="text"
+        id="title"
+        formControlName="title"
+        [ngClass]="{
+          'is-invalid': f['title'].touched && f['title'].invalid,
+          'is-valid': f['title'].touched && f['title'].valid
+        }"
+      />
+      @if (f['title'].touched && f['title'].invalid) {
+      <div class="alert alert-danger">
+        @if (f['title'].errors && f['title'].errors['required']) {
+        <div>Le titre est obligatoire.</div>
+        } @if (f['title'].errors && f['title'].errors['minlength']) {
+        <div>Le titre doit contenir au moins 3 caractères.</div>
+        }
+      </div>
+      }
+    </div>
+    <div class="form-group">
+      <label for="auteurs">Auteurs</label>
+      <input
+        class="form-control"
+        type="text"
+        id="auteurs"
+        formControlName="auteurs"
+        [ngClass]="{
+          'is-invalid': f['auteurs'].touched && f['auteurs'].invalid,
+          'is-valid': f['auteurs'].touched && f['auteurs'].valid
+        }"
+      />
+      @if( f['auteurs'].touched && f['auteurs'].invalid){ @if(
+      f['auteurs'].errors && f['auteurs'].errors['required']){
+      <div>Les auteurs sont obligatoires.</div>
+      } @if( f['auteurs'].errors && f['auteurs'].errors['minlength']){
+      <div>Les auteurs doivent contenir au moins 3 caractères.</div>
+      } }
+    </div>
+    <div class="form-group">
+      <label for="contents">Texte</label>
+      <input
+        class="form-control"
+        type="text"
+        id="contents"
+        formControlName="contents"
+      />
+    </div>
+
+    <div class="form-group mt-3 mb-3">
+      <button
+        class="btn btn-primary me-2"
+        [disabled]="!addNoteForm.valid"
+        type="submit"
+      >
+        Ajouter
+      </button>
+
+      <button class="btn btn-danger me-2" type="button" (click)="onReset()">
+        Reset
+      </button>
+      <!-- afficher button -->
+      <button class="btn btn-secondary" type="button" (click)="showAddNote()">
+        Afficher
+      </button>
+    </div>
+  </form>
+</div>
